@@ -1,6 +1,11 @@
 package com.dreamsolutech.dreamsdk;
 
+import android.app.Activity;
 import android.util.Log;
+
+import com.dreamsolutech.dreamsdk.retrofit.Main_Contract;
+import com.dreamsolutech.dreamsdk.retrofit.Main_Presenter;
+import com.google.gson.JsonObject;
 
 public class MyTestClass {
 
@@ -25,4 +30,18 @@ public class MyTestClass {
         int index = fromTheTop+1;
         return elem[index];
     }
+
+    public static void sendTest(Activity activity) {
+        Main_Presenter main_presenter = new Main_Presenter(view, activity);
+        JsonObject jsonObject = new JsonObject();
+        main_presenter.check_server(jsonObject);
+    }
+
+    private static Main_Contract.View view = new Main_Contract.View() {
+        @Override
+        public void result(JsonObject result, String from) {
+            loge("result  :  "    +     result       +  "      from  : "    +  from);
+        }
+    };
+
 }
