@@ -12,6 +12,7 @@ public class MyTestClass {
     private static String TAG_MESSAGE = "Jk";
     private static String LINE_SEPARATOR   = System.getProperty("line.separator");
     public static void loge(String message) {
+
         Log.e(TAG_MESSAGE + "[" + Thread.currentThread().getName() + "]", LINE_SEPARATOR + message + LINE_SEPARATOR + getStackTraceMessage(1));
     }
 
@@ -41,6 +42,7 @@ public class MyTestClass {
         @Override
         public void result(JsonObject result, String from) {
             loge("result  :  "    +     result       +  "      from  : "    +  from);
+
         }
     };
 
